@@ -1,6 +1,12 @@
 .c_calendar {
     border: 1px solid red;
-    path {
-        fill: red;
+    .alicorn {
+        display: block;
+        // width: 100px
+        font-size: 3em;
+        path {
+            fill: red;
+            width: 100%;
+        }
     }
 }
