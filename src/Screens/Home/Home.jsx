@@ -1,6 +1,7 @@
 import React from 'react';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import Header from '../../Components/Header/Header';
+import Calendar from '../../Components/Calendar/Calendar';
 
 export default class Home extends React.Component {
 	render() {
@@ -10,6 +11,7 @@ export default class Home extends React.Component {
 				<div className="wrapper">
 					<div className="center-content">
 						<Header />
+						<Calendar />
 					</div>
 				</div>
 			</CSSTransition>
