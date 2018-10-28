@@ -1,4 +1,6 @@
 import React from 'react';
+import Moment from 'react-moment';
+import 'moment-timezone';
 import Luke from './Luke/Luke';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -9,13 +11,15 @@ library.add(faAlicorn);
 
 
 export default class Calendar extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {luker: []}
+        this.myDate = new Date('1988-08-29T12:59-0500');
+        // this.calendarUrl = this.props.calendarUrl;
     }
 
     componentDidMount() {
-        let dataUrl =  "http://kaja.me/wp-json/acf/v3/luke?_embed";
+        let dataUrl =  this.props.calendarUrl;
         fetch(dataUrl)
             .then(res => res.json())
             .then(res => {
@@ -27,13 +31,17 @@ export default class Calendar extends React.Component {
 	render() {
         let luker = this.state.luker.map((luke, index) => {
             return <Luke
-                hepp = {luke.acf.tittel}
+                hepp = {luke.acf.tekst}
             />
         })
+        
+        
 		return (
             <div className="c_calendar">
                 <div className="center-content">
+                    <p>Varfor {this.props.calendarUrl}</p>
                     Kaendar : )
+                    <h3>Min bursdag: <Moment date={this.myDate}/></h3>
                     <FontAwesomeIcon className="alicorn" icon={faAlicorn} />
                     {luker}
                 </div>

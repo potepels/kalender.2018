@@ -9,10 +9,10 @@ const Menu = () => (
   <nav className="navigation">
     <ul>
         <li>
-          <Link to="/">Hjem</Link>
+          <Link to="/hva-daaa">Hva daaa</Link>
         </li>
         <li>
-          <Link to="/hva-daaa">Hva daaa</Link>
+          <Link to="/2016">Gammel kalender</Link>
         </li>
         <li>
           <Link to="/dsad">404</Link>

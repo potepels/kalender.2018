@@ -3,7 +3,7 @@ import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import Header from '../../Components/Header/Header';
 import Calendar from '../../Components/Calendar/Calendar';
 
-export default class Home extends React.Component {
+export default class Home2016 extends React.Component {
 	render() {
 		return (
 		<TransitionGroup>
@@ -11,7 +11,8 @@ export default class Home extends React.Component {
 				<div className="wrapper">
 					<div className="center-content">
 						<Header />
-						<Calendar/>
+						<Calendar calendarUrl="http://kaja.me/wp-json/acf/v3/2016_luker?_embed"/>
+						2016 bitch
 					</div>
 				</div>
 			</CSSTransition>

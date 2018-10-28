@@ -1,4 +1,18 @@
 .c_header {
-	background: pink;
-	border: 1px solid red;
+	padding: 10px 0;
+	&__logo {
+		text-align: center;
+		text-decoration: none;
+		h1 {
+			span {
+				display: inline-block;
+				margin: 0 5px;
+				width: 80px;
+				height: 44px;
+				vertical-align: middle;
+				background: url('./chibilogo.png') no-repeat center center;
+				background-size: cover;
+			}
+		}
+	}
 }
