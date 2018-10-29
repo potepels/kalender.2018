@@ -1,3 +1,5 @@
+@import './variables';
+
 * {
   margin: 0;
   padding: 0;
@@ -14,6 +16,7 @@ body {
   font-size: 62%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: $color--white;
 }
 
 h1 {
@@ -26,6 +29,5 @@ h1 {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }

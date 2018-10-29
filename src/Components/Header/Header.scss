@@ -1,9 +1,29 @@
+@import '../../variables';
+
 .c_header {
+	position: relative;
 	padding: 10px 0;
+	&__snowflakes {
+		border: 1px solid blue;
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		height: 100%;
+		.snowflake {
+			svg {
+				
+			}
+			&--small {
+				
+			}
+		}
+	}
 	&__logo {
 		text-align: center;
 		text-decoration: none;
 		h1 {
+			color: $color--red;
 			span {
 				display: inline-block;
 				margin: 0 5px;
