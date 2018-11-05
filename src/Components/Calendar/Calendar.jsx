@@ -15,6 +15,7 @@ export default class Calendar extends React.Component {
         super(props);
         this.state = {luker: []}
         this.myDate = new Date('1988-08-29T12:59-0500');
+        this.toDaysDate = new Date();
         // this.calendarUrl = this.props.calendarUrl;
     }
 
@@ -41,6 +42,7 @@ export default class Calendar extends React.Component {
                 <div className="center-content">
                     <p>Varfor {this.props.calendarUrl}</p>
                     Kaendar : )
+                    <Moment date>{this.toDaysDate}</Moment>
                     <h3>Min bursdag: <Moment date={this.myDate}/></h3>
                     <FontAwesomeIcon className="alicorn" icon={faAlicorn} />
                     {luker}
