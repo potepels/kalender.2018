@@ -11,7 +11,7 @@ export default class Home extends React.Component {
 				<div className="wrapper">
 					<div className="center-content">
 						<Header />
-						<Calendar/>
+						<Calendar calendarUrl="http://kaja.me/wp-json/acf/v3/luke?_embed"/>
 					</div>
 				</div>
 			</CSSTransition>
