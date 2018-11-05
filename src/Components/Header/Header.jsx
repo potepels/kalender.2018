@@ -11,13 +11,15 @@ const Header = () => (
   <header className="c_header">
     <div className="c_header__snowflakes">
       <FontAwesomeIcon className="snowflake snowflake--small" icon={faSnowflake} />
+      <FontAwesomeIcon className="snowflake snowflake--big" icon={faSnowflake} />
+      <FontAwesomeIcon className="snowflake snowflake--medium" icon={faSnowflake} />
       <FontAwesomeIcon className="snowflake snowflake--small" icon={faSnowflake} />
+      <FontAwesomeIcon className="snowflake snowflake--big" icon={faSnowflake} />
+      <FontAwesomeIcon className="snowflake snowflake--medium" icon={faSnowflake} />
       <FontAwesomeIcon className="snowflake snowflake--small" icon={faSnowflake} />
+      <FontAwesomeIcon className="snowflake snowflake--medium" icon={faSnowflake} />
+      <FontAwesomeIcon className="snowflake snowflake--big" icon={faSnowflake} />
       <FontAwesomeIcon className="snowflake snowflake--small" icon={faSnowflake} />
-      <FontAwesomeIcon className="snowflake snowflake--medium" icon={faSnowflake} />
-      <FontAwesomeIcon className="snowflake snowflake--medium" icon={faSnowflake} />
-      <FontAwesomeIcon className="snowflake snowflake--medium" icon={faSnowflake} />
-      <FontAwesomeIcon className="snowflake snowflake--medium" icon={faSnowflake} />
     </div>
     
     <div className="g_center-content">

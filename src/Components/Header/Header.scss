@@ -4,18 +4,40 @@
 	position: relative;
 	padding: 10px 0;
 	&__snowflakes {
-		border: 1px solid blue;
 		position: absolute;
-		top: 0;
+		top: -40%;
 		left: 0;
 		right: 0;
-		height: 100%;
+		height: 30vh;
+		z-index: -1;
+		opacity: 1;
+		border-bottom: 2px solid pink;
+		overflow-y: hidden;
 		.snowflake {
-			svg {
-				
+			position: absolute;
+			top: 0;
+			left: 0;
+			animation: snowfall infinite 5s;
+			
+			font-size: 2vw;
+			path {
+				fill: #fff;
+			}
+			@for $i from 1 through 12 {
+				&:nth-of-type(#{$i}) {
+					animation-delay: calc(1.5s * #{$i});
+					left: calc(9vw * #{$i});
+				}
 			}
 			&--small {
-				
+				animation-duration: 8s;
+			}
+			&--medium {
+				font-size: 3vw;
+			}
+			&--big {
+				font-size: 4vw;
+				animation-duration: 3s;
 			}
 		}
 	}
@@ -23,7 +45,7 @@
 		text-align: center;
 		text-decoration: none;
 		h1 {
-			color: $color--red;
+			color: $color--white;
 			span {
 				display: inline-block;
 				margin: 0 5px;
@@ -34,5 +56,25 @@
 				background-size: cover;
 			}
 		}
+	}
+}
+
+@keyframes snowfall  {
+	0% {
+		opacity: 1;
+		top: -40%;
+		transform: scale(0.5);
+	}
+	65% {
+		transform: scale(1);
+		opacity: 1;
+	}
+	80% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 0;
+		top: 90%;
+		transform: scale(0.8);
 	}
 }
