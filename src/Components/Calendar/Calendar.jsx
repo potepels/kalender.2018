@@ -1,78 +1,81 @@
 import React from 'react';
-import Moment from 'react-moment';
-import 'moment-timezone';
+// import Moment from 'react-moment';
+// import 'moment-timezone';
 import Luke from './Luke/Luke';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { faAlicorn } from '@fortawesome/pro-light-svg-icons';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { library } from '@fortawesome/fontawesome-svg-core';
+// import { faAlicorn } from '@fortawesome/pro-light-svg-icons';
 import './Calendar.scss';
-library.add(faAlicorn);
+// library.add(faAlicorn);
 
 export default class Calendar extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            luker: [],
-            calendarEarly: false,
-            calendarOpen: false,
-            calendarClosed: false
+            luker: [],            
+            calendarStatus: 'early'
             }
         this.hasItStartedYet = this.hasItStartedYet.bind(this);
         this.getLuker = this.getLuker.bind(this);
-        this.myDate = new Date('1988-08-29T12:59-0500');
         this.startDate = new Date('2018-11-01T00:00:01');
-        this.endDate = new Date('2018-11-05T23:59:59');
+        this.endDate = new Date('2018-11-24T23:59:59');
         this.todaysDate = new Date();
         this.todaysDay = this.todaysDate.getDate();
+        this.numberOfDays = 24;
     }
 
     componentDidMount() {
         let dataUrl =  this.props.calendarUrl;
         fetch(dataUrl)
-            .then(res => res.json())
-            .then(res => {
-                this.setState({
-                    luker: res
-                })
-            })
+            .then(response => response.json())            
+            .then(luker => this.setState({luker: luker.reverse()}))
             this.hasItStartedYet();
     }
 
-    getLuker(yo) {
-        console.log(yo);
+    getLuker(luker) {
+        
+        
     }
 
     hasItStartedYet() {
-        console.log(this.todaysDate);
-        if(this.todaysDate < this.startDate || this.todaysDate == this.startDate) {
-            this.setState({calendarEarly: true});
+        if(this.todaysDate < this.startDate || this.todaysDate === this.startDate) {
+            this.setState({calendarStatus: 'early'});
         }
         else if (this.todaysDate > this.endDate) {
-            this.setState({calendarClosed: true});
+            this.setState({calendarStatus: 'closed'});
         } 
         else {
-            this.setState({calendarOpen: true});
+            this.setState({calendarStatus: 'open'});
             this.getLuker(this.todaysDay);
-
         }
     }
 	render() {
         
         let heading;
+        // let luker = this.state.luker.map()
 
         let luker = this.state.luker.map((luke, index) => {
-            return <Luke
+            console.log('Dette er en luke ');
+            if (index < this.todaysDay) {
+                return <Luke
                 key={index}
-                hepp = {luke.acf.tekst}
+                tekst = {luke.acf.tekst}
+                nummer = {luke.acf.nummer}
+                status = {this.state}
             />
+            }
+            
+                        
         })
+        console.log(this.calendarStatus);
+        // luker = this.getLuker(luker);
         // Må sjekke om det er 1. eller 24. også
-        if (this.state.calendarEarly) {
-            heading = 'Du er for tidlig ute!';
-        } else if (this.state.calendarOpen) {
+        if (this.state.calendarStatus === 'early') {
+            heading = 'Du er for tidlig ute! Kom tilbake 1. desember :)';
+        } else if (this.state.calendarStatus === 'open') {
             heading = 'Jippi, kalender';
         } else {
-            heading = 'STENGT FFS';
+            heading = 'God jul! Kalenderen over for denne gang';
         }
         
         
@@ -80,10 +83,10 @@ export default class Calendar extends React.Component {
             <div className="c_calendar">
                 <p>dette er dagens date {this.props.todaysDate}</p>
                 <div className="center-content">
-                    
-                    {heading} {this.todaysDay}
-                    <FontAwesomeIcon className="alicorn" icon={faAlicorn} />
+                    {heading} {this.todaysDay}                    
+                    <div className="c_calendar__luker">
                     {luker}
+                    </div>
                 </div>
             </div>
 		);

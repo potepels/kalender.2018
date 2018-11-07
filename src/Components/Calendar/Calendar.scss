@@ -1,10 +1,16 @@
+@import '../../variables';
+
 .c_calendar {
     border: 1px solid red;
-    .alicorn {
-        display: block;
-        font-size: 3em;
-        path {
-            fill: red;
-        }
+    
+    &__luker {
+        display: -ms-grid;
+        display: grid;
+        -ms-grid-columns: repeat(4, auto);
+        grid-template-columns: repeat(4, auto);
+        grid-template-rows: repeat(6, auto);
+        grid-row-gap: 1vw;
+        grid-column-gap: 1vw;
+        // min-height: 70vh;
     }
 }

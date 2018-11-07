@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import './Header.scss';
+import './Luke.scss';
 
 class Luke extends Component {
     constructor(props) {
@@ -9,9 +9,9 @@ class Luke extends Component {
 
     render() {
         return (
-            <div className="c_header">
-                Luke
-                <h2>{this.props.hepp}</h2>
+            <div className="c_luke">
+                <h2>{this.props.nummer}</h2>
+                LOLLOLOLO
             </div>
         )
     }

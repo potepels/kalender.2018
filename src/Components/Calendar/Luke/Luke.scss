@@ -1,0 +1,14 @@
+@import '../../../variables';
+
+.c_luke {
+    text-align: center;
+    border: 1px solid salmon;
+    // width: 15vw;
+    // height: 15vw;
+    width: 100%;
+    height: 100%;
+    &:nth-of-type(10) {
+        // grid-column: 4/6;
+        // grid-row: 2/3;
+    }
+}
