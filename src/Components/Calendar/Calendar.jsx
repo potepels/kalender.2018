@@ -16,7 +16,6 @@ export default class Calendar extends React.Component {
             // calendarStatus: 'early'
             }
         this.hasItStartedYet = this.hasItStartedYet.bind(this);
-        // this.getLuker = this.getLuker.bind(this);
         this.startDate = new Date('2018-11-01T00:00:01');
         this.endDate = new Date('2018-11-24T23:59:59');
         this.todaysDate = new Date();
@@ -47,17 +46,8 @@ export default class Calendar extends React.Component {
         }
     }
 	render() {
-        
-        // let heading;
-        // let luker = this.state.luker.map()
 
         let luker = this.state.luker.map((luke, index) => {
-            // console.log('Dette er en luke ');
-            // if (index < this.todaysDay) {
-                // this.lukeStatus = true;
-                // this.calendarStatus = 'closed';
-                // this.setState({calendarStatus: 'closed'})
-            // }
                 return <Luke
                 key={index}
                 tekst = {luke.acf.tekst}
@@ -65,18 +55,8 @@ export default class Calendar extends React.Component {
                 lukeStatus = {this.lukeStatus}
                 calendarStatus = {this.state.calendarStatus}
                 todaysDay = {this.todaysDay}
-            />
-            
+            />            
         })
-        // console.log(this.calendarStatus);
-        // if (this.state.calendarStatus === 'early') {
-        //     heading = 'Du er for tidlig ute! Kom tilbake 1. desember :)';
-        // } else if (this.state.calendarStatus === 'open') {
-        //     heading = 'Jippi, kalender';
-        // } else {
-        //     heading = 'God jul! Kalenderen over for denne gang';
-        // }
-        
         
 		return (
             <div className="c_calendar">
