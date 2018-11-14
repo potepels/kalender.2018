@@ -1,3 +1,12 @@
-.c_menu {
-    background: salmon;
+@import '../../variables';
+
+.c_navigation {
+    ul {
+        li {
+            display: inline-block;
+        }
+    }
+    @media (min-width: $med-width) {
+        
+    }
 }

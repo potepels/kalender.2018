@@ -1,16 +1,18 @@
 @import '../../variables';
 
 .c_calendar {
-    border: 1px solid red;
-    
+    padding: 0 15px;
     &__luker {
-        display: -ms-grid;
-        display: grid;
-        -ms-grid-columns: repeat(4, auto);
-        grid-template-columns: repeat(4, auto);
-        grid-template-rows: repeat(6, auto);
-        grid-row-gap: 1vw;
-        grid-column-gap: 1vw;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        // display: -ms-grid;
+        // display: grid;
+        // -ms-grid-columns: repeat(4, auto);
+        // grid-template-columns: repeat(4, auto);
+        // grid-template-rows: repeat(6, auto);
+        // grid-row-gap: 1vw;
+        // grid-column-gap: 1vw;
         // min-height: 70vh;
     }
 }

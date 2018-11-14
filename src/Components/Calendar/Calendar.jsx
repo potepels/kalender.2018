@@ -1,19 +1,13 @@
 import React from 'react';
-// import Moment from 'react-moment';
-// import 'moment-timezone';
 import Luke from './Listeluke/Listeluke';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { library } from '@fortawesome/fontawesome-svg-core';
-// import { faAlicorn } from '@fortawesome/pro-light-svg-icons';
+// import ShuffleArray from 'shuffle-array';
 import './Calendar.scss';
-// library.add(faAlicorn);
 
 export default class Calendar extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            luker: [],            
-            // calendarStatus: 'early'
+            luker: [],
             }
         this.hasItStartedYet = this.hasItStartedYet.bind(this);
         this.startDate = new Date('2018-11-01T00:00:01');
@@ -21,7 +15,6 @@ export default class Calendar extends React.Component {
         this.todaysDate = new Date();
         this.todaysDay = this.todaysDate.getDate();
         this.numberOfDays = 24;
-        // this.lukeStatus = false;
     }
 
     componentDidMount() {
@@ -42,7 +35,6 @@ export default class Calendar extends React.Component {
         } 
         else {
             this.setState({calendarStatus: 'open'});
-            // this.getLuker(this.todaysDay);
         }
     }
 	render() {
@@ -51,23 +43,21 @@ export default class Calendar extends React.Component {
                 return <Luke
                 key={index}
                 tekst = {luke.acf.tekst}
+                bilde = {luke.acf.bilde}
                 nummer = {luke.acf.nummer}
-                lukeStatus = {this.lukeStatus}
                 calendarStatus = {this.state.calendarStatus}
                 todaysDay = {this.todaysDay}
             />            
         })
         
 		return (
-            <div className="c_calendar">
-                <p>dette er dagens date {this.props.todaysDate}</p>
-                <div className="center-content">
-                    {this.todaysDay}                    
-                    <div className="c_calendar__luker">
-                    {luker}
-                    </div>
-                </div>
-            </div>
+      <div className="c_calendar">
+          <div className="g_center-content">               
+              <div className="c_calendar__luker">
+              {luker}
+              </div>
+          </div>
+      </div>
 		);
 	}
 }

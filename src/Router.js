@@ -17,7 +17,7 @@ export default () => (
 		<Switch>
 			<Route path="/" exact component={Home} />
 			<Route path="/2016" exact component={Home2016} />
-			<Route exact path="/hva-daaa" component={About} />
+			<Route exact path="/om" component={About} />
 			<Route path="/luke/:id" component={Luke} />
 			<Route path="/kaja.me.2018/wp-admin" exact />
 			<Route component={NoMatch} />

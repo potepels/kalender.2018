@@ -20,3 +20,7 @@ $color--white: #ffffff;
 $small-width: 550px;
 $med-width: 760px;
 $mega-width: 1000px;
+
+@mixin gradient($color1, $color2) {
+    background: linear-gradient(to bottom, $color1 0%, $color2 100%);
+}

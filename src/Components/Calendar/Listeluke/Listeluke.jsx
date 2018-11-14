@@ -1,13 +1,30 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './Listeluke.scss';
+import square from './square.png';
 
 class Listeluke extends Component {
     constructor(props) {
         super(props);
         this.props = props;
         this.calendarStatus = this.props.calendarStatus;
-        this.heading = 'Lukket';
+        this.state = {
+            lukeStatus: 'closed',
+        }
+    }
+
+    componentDidMount() {
+        this.setLukeStatus();
+    }
+
+    setLukeStatus = () => {
+        if(this.props.todaysDay >= this.props.nummer) {
+            this.setState({lukeStatus: 'open'});
+        }
+    }
+
+    getLukeStatus = () => {
+        return this.state.lukeStatus;
     }
 
     render() {
@@ -15,9 +32,9 @@ class Listeluke extends Component {
         if (this.props.todaysDay >= this.props.nummer) {
             lukeContent = (
                 <div className="c_listeluke__inner">
-                    <Link to={`/luke/${this.props.nummer}`}>                    
+                    <Link to={`/luke/${this.props.nummer}`}>
                         <h2>{this.props.nummer}</h2>
-                        <h3>Åpen</h3>
+                        <img src={this.props.bilde.sizes.thumbnail} alt="Bilde av thumbnail"/>
                     </Link>
                 </div>
             )
@@ -26,12 +43,12 @@ class Listeluke extends Component {
             lukeContent = (
                 <div className="c_listeluke__inner">
                     <h2>{this.props.nummer}</h2>
-                    <h3>Stengt</h3>
+                    <img src={square} alt=""/>
                 </div>
             )
         }
         return (
-            <div className="c_listeluke">
+            <div className={`c_listeluke c_listeluke--${this.state.lukeStatus}`}>
                 {lukeContent}
            </div>
         )

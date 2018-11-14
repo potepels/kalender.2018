@@ -1,14 +1,50 @@
 @import '../../../variables';
 
 .c_listeluke {
+    position: relative;
+    margin-bottom: 15px;
+    width: calc(50% - 7px);
     text-align: center;
-    border: 1px solid salmon;
-    // width: 15vw;
-    // height: 15vw;
-    width: 100%;
-    height: 100%;
-    &:nth-of-type(10) {
-        // grid-column: 4/6;
-        // grid-row: 2/3;
+    font-family: 'Lobster';
+    overflow: hidden;
+    color: #fff;
+    a {
+        display: block;
+        position: relative;
+        text-decoration: none;
+        color: $color--pink;
+        color: #fff;
+    }
+    img {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+    h2 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 50px;
+        height: 50px;
+        font-size: 2rem;
+        transform: translate(-50%, -50%);
+        z-index: 10;
+        // background: #fff;
+        // background: lighten($color--turq, 10%);
+    }
+    &--open {
+        border-color: rgb(201, 201, 241);
+        img {
+            filter: brightness(0.3);
+        }
+    }
+    &--closed {
+        background: rgba($color--lightpink, 0.35);
+    }
+    @media (min-width: $small-width) {
+        width: calc(33.33% - 10px);
+    }
+    @media (min-width: $med-width) {
+        width: calc(25% - 10px);
     }
 }
