@@ -2,4 +2,8 @@
 
 .c_viggoluke {
     background: salmon;
+    &__today,
+    &__open {
+        border: 1px solid pink;
+    }
 }
