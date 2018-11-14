@@ -14,58 +14,62 @@ class Viggoluke extends React.Component {
         // this.state = {
         //     lukeStatus: 'early'
         //   };
-        console.log(props);
     }
     
     
 	render() {
         let lukeContent;
         let extraClass;
-        if (this.props.lukeId > this.endDay) {
-            extraClass= 'c_viggolukke--cheater'; 
-            lukeContent = (
-                <div>
-                    <h2>Denne datoen fins ikke engang!</h2>
-                </div>
-            )
-        }
-        else if (this.props.lukeId > this.todaysDay) {
-            extraClass= 'c_viggolukke--future'; 
-            lukeContent = (
-                <div>
-                    <h2>Nå hoppet du litt langt frem i tid...</h2>
-                </div>
-            )
-        }
-        else if (this.props.lukeId > this.startDay || this.props.lukeId == this.startDay) {
-            // this.getDataFromLuke(this.props.calendarUrl);
-            if (this.props.lukeId == this.todaysDay) {
-                extraClass= 'c_viggolukke--open c_viggoluke--today'; 
-                lukeContent = (
-                    <div>
-                        <h2>Ja, det har starta, OG det er i dag!</h2>
-                    </div>
-                )
-            } else {
-                extraClass= 'c_viggolukke--open'; 
-                lukeContent = (
-                    <div>
-                        <h2>Ja, det har starta</h2>
-                    </div>
-                )
-            }
+        // console.log(this.props.bilde);
+        // if (this.props.lukeId > this.endDay) {
+        //     extraClass= 'c_viggolukke--cheater'; 
+        //     lukeContent = (
+        //         <div>
+        //             <h2>Denne datoen fins ikke engang!</h2>
+        //         </div>
+        //     )
+        // }
+        // else if (this.props.lukeId > this.todaysDay) {
+        //     extraClass= 'c_viggolukke--future'; 
+        //     lukeContent = (
+        //         <div>
+        //             <h2>Nå hoppet du litt langt frem i tid...</h2>
+        //         </div>
+        //     )
+        // }
+        // else if (this.props.lukeId > this.startDay || this.props.lukeId == this.startDay) {
+        //     // this.getDataFromLuke(this.props.calendarUrl);
+        //     if (this.props.lukeId == this.todaysDay) {
+        //         extraClass= 'c_viggolukke--open c_viggoluke--today'; 
+        //         lukeContent = (
+        //             <div>
+        //                 <h2>Ja, det har starta, OG det er i dag!</h2>
+        //             </div>
+        //         )
+        //     } else {
+        //         extraClass= 'c_viggolukke--open'; 
+        //         lukeContent = (
+        //             <div>
+        //                 <h2>Ja, det har starta</h2>
+        //             </div>
+        //         )
+        //     }
             
-        } else {
-            extraClass= 'c_viggolukke--magic';
-            lukeContent = (
-                <div>
-                    <h2>Nei, nå tror jeg du tøyser. Hvordan havnet du her egentlig?</h2>
-                </div>
-            )
-        }
+        // } else {
+        //     extraClass= 'c_viggolukke--magic';
+        //     lukeContent = (
+        //         <div>
+        //             <h2>Nei, nå tror jeg du tøyser. Hvordan havnet du her egentlig?</h2>
+        //         </div>
+        //     )
+        // }
 		return (
         <div className={`c_viggoluke ${extraClass}`}>
-            {this.props.calendarStatus}
+            Status: {this.props.calendarStatus} <br/>
+            <h1>{this.props.nummer}</h1>
+            {this.props.tekst}            
+            <img src={this.props.bilde.sizes.medium} alt="hehe" />
+            {JSON.stringify(this.props.bilde)}
             {/* {lukeContent} */}
         </div>
 		);
