@@ -5,7 +5,7 @@
 	padding: 15px 0;
 	&__snowflakes {
 		position: absolute;
-		top: -40%;
+		top: -45%;
 		left: 0;
 		right: 0;
 		height: 30vh;
@@ -17,8 +17,8 @@
 			top: 0;
 			left: 0;
 			animation: snowfall infinite 5s;
-			
 			font-size: 2vw;
+			z-index: 20;
 			path {
 				fill: #fff;
 			}

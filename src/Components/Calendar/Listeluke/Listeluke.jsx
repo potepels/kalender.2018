@@ -49,6 +49,9 @@ class Listeluke extends Component {
         }
         return (
             <div className={`c_listeluke c_listeluke--${this.state.lukeStatus}`}>
+                {/* <span className="c_listeluke__ribbon">
+                    {this.props.nummer}
+                </span> */}
                 {lukeContent}
            </div>
         )

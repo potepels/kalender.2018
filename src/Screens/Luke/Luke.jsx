@@ -9,11 +9,12 @@ export default class Luke extends React.Component {
         this.lukeId = props.match.params.id;
 
         this.todaysDate = new Date();
-        this.todaysDay = this.todaysDate.getDate();
+        // this.todaysDay = 24;
         this.startDate = new Date('2018-11-01T00:00:01');
-        this.startDay = this.startDate.getDate();
         this.endDate = new Date('2018-11-24T23:59:59');
-        this.endDay = this.endDate.getDate();
+        this.todaysDay = parseInt(this.todaysDate.getDate());
+        this.startDay = parseInt(this.startDate.getDate());
+        this.endDay = parseInt(this.endDate.getDate());
         this.state = {
             calendarStatus: 'early',
             showText: false,
@@ -26,7 +27,7 @@ export default class Luke extends React.Component {
         const result = await fetch('http://kaja.me/wp-json/acf/v3/2016_luker?per_page=24');
         let luke = await result.json();
         luke = luke.reverse();
-        console.log(luke[this.lukeId-1]);
+        // console.log(luke[this.lukeId-1]);
         this.setState({data: luke[this.lukeId-1]});
         
     }
@@ -48,9 +49,9 @@ export default class Luke extends React.Component {
             console.log('Calendarstatus satt til future, for vi er i riktig periode men åpner en fremtidig luke');
             this.setState({calendarStatus: 'future', showText: false});
         }
-        else if (this.lukeId > this.startDay || this.lukeId == this.startDay) {
+        else if (this.lukeId > this.startDay || this.lukeId === this.startDay) {
             // this.getLukeHeading();
-            if (this.lukeId == this.todaysDay) {
+            if (this.lukeId === this.todaysDay) {
                 console.log('Calendarstatus satt til today, for vi er i riktig periode OG det er i dag!');
                 this.setState({calendarStatus: 'today', showText: true});
             } else {
@@ -69,7 +70,7 @@ export default class Luke extends React.Component {
     }
 
     getLukeContent(lall) {
-        console.log(lall);
+        // console.log(lall);
     }
 
 	render() {
@@ -86,7 +87,12 @@ export default class Luke extends React.Component {
                             calendarStatus = {this.getCalendarStatus()}
                         />
                     )}
-                    
+                    {/* {!this.state.data && (
+                        <Viggoluke
+                            lukeId = {this.lukeId}
+                            calendarStatus = {this.getCalendarStatus()}
+                        />
+                    )} */}
                 </div>
             </div>
 		);

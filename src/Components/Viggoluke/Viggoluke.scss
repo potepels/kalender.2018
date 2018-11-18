@@ -1,9 +1,13 @@
 @import '../../variables';
 
 .c_viggoluke {
-    background: salmon;
-    &__today,
-    &__open {
+    border: 1px solid #fff;
+    &--today,
+    &--open {
         border: 1px solid pink;
+    }
+    &--humbug,
+    &--future {
+        border: 1px solid cyan;
     }
 }
