@@ -25,8 +25,7 @@ class Viggoluke extends React.Component {
                 <div className="c_viggoluke__inner">
                     <h2>{this.props.nummer}. desember</h2>
                     <figure className="luke-image">
-                        <img src={this.props.bilde.sizes.medium} alt="hehe" />
-                        {/* {JSON.stringify(this.props.bilde)} */}
+                        <img src={this.props.bilde.sizes.medium} alt="Hei hei" />
                         <p>{this.props.tekst}</p>
                     </figure>
                     <p>{this.props.tekst}</p>
@@ -44,7 +43,7 @@ class Viggoluke extends React.Component {
         } else if (this.props.calendarStatus === 'humbug' || this.props.calendarStatus === 'lol') {
             lukeContent = (
                 <div className="c_viggoluke__inner">
-                    <p>Nei, denne fins jo ikke engang</p>
+                    <p>Nei, denne fins jo ikke engang.</p>
                 </div>
             );
             extraClass = 'humbug';

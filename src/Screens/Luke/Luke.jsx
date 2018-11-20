@@ -6,7 +6,7 @@ import Header from '../../Components/Header/Header';
 export default class Luke extends React.Component {
 	constructor(props) {
         super(props);
-        this.lukeId = props.match.params.id;
+        this.lukeId = parseInt(props.match.params.id);
 
         this.todaysDate = new Date();
         // this.todaysDay = 24;
@@ -27,7 +27,14 @@ export default class Luke extends React.Component {
         const result = await fetch('http://kaja.me/wp-json/acf/v3/2016_luker?per_page=24');
         let luke = await result.json();
         luke = luke.reverse();
-        // console.log(luke[this.lukeId-1]);
+        console.log(parseInt(this.lukeId));
+        // if (parseInt(this.lukeId) === 1) {
+        //     this.setState({data: luke[0]});
+        //     console.log(this.startDay);
+        // } else {
+        //     console.log('Dette er IKKE luke eeen!');
+        //     this.setState({data: luke[this.lukeId-1]});
+        // }
         this.setState({data: luke[this.lukeId-1]});
         
     }
@@ -50,7 +57,7 @@ export default class Luke extends React.Component {
             this.setState({calendarStatus: 'future', showText: false});
         }
         else if (this.lukeId > this.startDay || this.lukeId === this.startDay) {
-            // this.getLukeHeading();
+            console.log('Kommer jeg hit?');
             if (this.lukeId === this.todaysDay) {
                 console.log('Calendarstatus satt til today, for vi er i riktig periode OG det er i dag!');
                 this.setState({calendarStatus: 'today', showText: true});
@@ -69,16 +76,12 @@ export default class Luke extends React.Component {
         return this.state.calendarStatus;
     }
 
-    getLukeContent(lall) {
-        // console.log(lall);
-    }
-
 	render() {
-		return (
-            <div className="wrapper">
-                <div className="center-content">
-                    <Header />
-                    {this.state.data && (
+        if (this.state.data) {
+            return (
+                <div className="wrapper">
+                    <div className="center-content">
+                        <Header />
                         <Viggoluke 
                             lukeId = {this.lukeId}
                             nummer = {this.state.data && this.state.data.acf.nummer}
@@ -86,15 +89,19 @@ export default class Luke extends React.Component {
                             bilde = {this.state.showText && this.state.data && this.state.data.acf.bilde}
                             calendarStatus = {this.getCalendarStatus()}
                         />
-                    )}
-                    {/* {!this.state.data && (
-                        <Viggoluke
-                            lukeId = {this.lukeId}
-                            calendarStatus = {this.getCalendarStatus()}
-                        />
-                    )} */}
+                    </div>
+                </div>
+           
+            )
+        } else {
+            return (
+            <div className="wrapper">
+                <div className="center-content">
+                    <Header />
+                    <Viggoluke />
                 </div>
             </div>
-		);
+            );
+        }
 	}
 }
