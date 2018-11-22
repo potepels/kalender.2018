@@ -1,0 +1,36 @@
+@import '../../variables';
+
+.c_hund {
+    display: flex;
+    flex-wrap: wrap;
+    h2 {
+        width: 100%;
+        font-family: 'Lobster';
+    }
+    figure {
+        width: 100%;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 10px solid $color--turq;
+        // background: $color--turq;
+        @include gradient($color--lightpink, $color--darkgreen);
+        background: rgba(#fff, 0.2);
+        // background: #fff;
+        img {
+            display: block;
+            width: 100%;
+        }
+    }
+    dl {
+        border: 1px solid pink;
+        width: 100%;
+    }
+    @media (min-width: $small-width) {
+        figure {
+            width: 30%;
+        }
+        &__text {
+            width: 60%
+        }
+    }
+}

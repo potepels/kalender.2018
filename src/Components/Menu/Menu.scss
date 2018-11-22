@@ -1,12 +1,53 @@
 @import '../../variables';
 
 .c_navigation {
+    position: fixed;
+    top: 0;
+    right: -200px;
+    // width: 20vw;
+    width: 200px;
+    height: 100vh;
+    z-index: 40;
+    text-align: right;
+    transition: right 200ms ease-in-out;
+    border: 1px solid red;
+    background: rgba($color--red, 0.75);
     ul {
+        display: block;
+        margin-top: 60px;
+        list-style: none;
+        font-size: 18px;
         li {
-            display: inline-block;
+            margin-bottom: 10px;
+            a {
+                display: block;
+                padding: 5px 15px;
+                color: #fff;
+                text-decoration: none;
+            }
         }
     }
-    @media (min-width: $med-width) {
-        
+    &--open {
+        right: 0;
+    }
+    &__toggle {
+        position: fixed;
+        top: 15px;
+        right: 0;
+        padding: 0;
+        width: 60px;
+        height: 40px;
+        text-align: center;
+        font-size: 30px;
+        z-index: 50;
+        border: none;
+        color: #fff;
+        background: transparent;
+        -webkit-appearance: none;
+    }
+    @media (min-width: $small-width) {
+        &__toggle {
+            cursor: pointer;
+        }
     }
 }

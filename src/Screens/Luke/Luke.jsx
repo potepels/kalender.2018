@@ -28,15 +28,7 @@ export default class Luke extends React.Component {
         let luke = await result.json();
         luke = luke.reverse();
         console.log(parseInt(this.lukeId));
-        // if (parseInt(this.lukeId) === 1) {
-        //     this.setState({data: luke[0]});
-        //     console.log(this.startDay);
-        // } else {
-        //     console.log('Dette er IKKE luke eeen!');
-        //     this.setState({data: luke[this.lukeId-1]});
-        // }
-        this.setState({data: luke[this.lukeId-1]});
-        
+        this.setState({data: luke[this.lukeId-1]});        
     }
 
     setCalendarStatus = () => {
