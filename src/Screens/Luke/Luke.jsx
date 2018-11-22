@@ -92,16 +92,16 @@ export default class Luke extends React.Component {
                     </div>
                 </div>
            
-            )
-        } else {
-            return (
-            <div className="wrapper">
-                <div className="center-content">
-                    <Header />
-                    <Viggoluke />
-                </div>
-            </div>
             );
-        }
+        } 
+        return (
+        <div className="wrapper">
+            <div className="center-content">
+            hrhrh
+                <Header />
+                <Viggoluke calendarStatus = {this.getCalendarStatus()} />
+            </div>
+        </div>
+        );
 	}
 }

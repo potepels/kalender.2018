@@ -8,6 +8,7 @@ class Viggoluke extends React.Component {
         this.startDay = new Date('2018-11-01T00:00:01').getDate();
         this.endDay = new Date('2018-11-24T23:59:59').getDate();
         this.todaysDay = parseInt(this.todaysDate.getDate());
+        console.log('hei');
     }
     
     
@@ -18,14 +19,15 @@ class Viggoluke extends React.Component {
             </div>
         );
         let extraClass = 'humbug';
+        console.log('hei2');
         if (this.props.calendarStatus === 'open' || this.props.calendarStatus === 'today' || this.props.calendarStatus === 'done') {
-            
+            console.log('hei3', this.props.bilde);
             // console.log(this.props.bilde);
             lukeContent = (
                 <div className="c_viggoluke__inner">
                     <h2>{this.props.nummer}. desember</h2>
                     <figure className="luke-image">
-                        <img src={this.props.bilde.sizes.medium} alt="Hei hei" />
+                        <img src={this.props.bilde && this.props.bilde.sizes.medium} alt="Hei hei" />
                         <p>{this.props.tekst}</p>
                     </figure>
                     <p>{this.props.tekst}</p>
