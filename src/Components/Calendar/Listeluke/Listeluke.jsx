@@ -31,6 +31,7 @@ class Listeluke extends Component {
 
     render() {
         let lukeContent;
+        let hepp;
         if (this.calendarStatus === 'open' && this.props.todaysDay >= this.props.nummer) {
             lukeContent = (
                 <div className="c_listeluke__inner">
@@ -40,6 +41,7 @@ class Listeluke extends Component {
                     </Link>
                 </div>
             )
+            hepp = 'open';
         }
         else {
             lukeContent = (
@@ -48,9 +50,10 @@ class Listeluke extends Component {
                     <img src={square} alt=""/>
                 </div>
             )
+            hepp = 'closed';
         }
         return (
-            <div className={`c_listeluke c_listeluke--${this.state.lukeStatus}`}>            
+            <div className={`c_listeluke c_listeluke--${hepp}`}>            
                 {lukeContent}
            </div>
         )

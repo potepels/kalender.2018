@@ -55,7 +55,6 @@ export default class Calendar extends React.Component {
 		return (
         <div className="c_calendar">
             <div className="g_center-content">
-            {this.state.calendarStatus}
                 {this.state.calendarStatus === 'closed' && (
                     <div className="c_calendar__intro-text">
                         <h2>Over for denne gang</h2>
