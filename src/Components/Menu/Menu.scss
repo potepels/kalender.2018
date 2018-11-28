@@ -10,8 +10,7 @@
     z-index: 40;
     text-align: right;
     transition: right 200ms ease-in-out;
-    border: 1px solid red;
-    background: rgba($color--red, 0.75);
+    background: rgba($color--red, 0.85);
     ul {
         display: block;
         margin-top: 60px;
@@ -32,7 +31,7 @@
     }
     &__toggle {
         position: fixed;
-        top: 15px;
+        top: 10px;
         right: 0;
         padding: 0;
         width: 60px;
@@ -44,6 +43,12 @@
         color: #fff;
         background: transparent;
         -webkit-appearance: none;
+        &:focus {
+            outline: none;
+        }
+        &--clicked {
+            background: $color--pink;
+        }
     }
     @media (min-width: $small-width) {
         &__toggle {

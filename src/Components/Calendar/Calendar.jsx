@@ -1,6 +1,6 @@
 import React from 'react';
-import Luke from './Listeluke/Listeluke';
-// import ShuffleArray from 'shuffle-array';
+import Listeluke from './Listeluke/Listeluke';
+import { Link } from 'react-router-dom';
 import './Calendar.scss';
 
 export default class Calendar extends React.Component {
@@ -10,10 +10,13 @@ export default class Calendar extends React.Component {
             luker: [],
             }
         this.hasItStartedYet = this.hasItStartedYet.bind(this);
-        this.startDate = new Date('2018-11-01T00:00:01');
-        this.endDate = new Date('2018-11-24T23:59:59');
+        // this.startDate = new Date('2018-12-01T00:00:01');
+        // this.endDate = new Date('2018-12-24T23:59:59');
+        this.startDate = new Date('2018-11-06T00:00:01');
+        this.endDate = new Date('2018-11-30T23:59:59');
         this.todaysDate = new Date();
-        this.todaysDay = this.todaysDate.getDate();
+        // this.todaysDay = this.todaysDate.getDate();
+        this.todaysDay = parseInt(10);
         this.numberOfDays = 24;
     }
 
@@ -38,9 +41,8 @@ export default class Calendar extends React.Component {
         }
     }
 	render() {
-
         let luker = this.state.luker.map((luke, index) => {
-                return <Luke
+                return <Listeluke
                 key={index}
                 tekst = {luke.acf.tekst}
                 bilde = {luke.acf.bilde}
@@ -51,13 +53,24 @@ export default class Calendar extends React.Component {
         })
         
 		return (
-      <div className="c_calendar">
-          <div className="g_center-content">               
-              <div className="c_calendar__luker">
-              {luker}
-              </div>
-          </div>
-      </div>
+        <div className="c_calendar">
+            <div className="g_center-content">
+            {this.state.calendarStatus}
+                {this.state.calendarStatus === 'closed' && (
+                    <div className="c_calendar__intro-text">
+                        <h2>Over for denne gang</h2>
+                        <p>Jeg lover å stille med masse nytt innhold til neste år. Jeg er <strong>ikke</strong> ferdig med Momo og Sana! :)</p>
+                    </div>)}
+                    {this.state.calendarStatus === 'early' && (
+                    <div className="c_calendar__intro-text">
+                        <h2>Åpner 1. desember!</h2>
+                        <p>Så koselig at du titter innom :) Jeg har dessverre ikke noe nytt innhold på kalenderen i år heller, jeg har rett og slett ikke hatt tid og ork. Men den gamle kalenderen har <Link to="/hva-er-dette">fått en ny drakt</Link>, og kanskje kan det være hyggelig å følge Momo og Sana hjem til jul en gang til.</p>
+                    </div>)}
+                <div className="c_calendar__luker">
+                {luker}
+                </div>
+            </div>
+        </div>
 		);
 	}
 }

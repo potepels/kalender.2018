@@ -14,7 +14,9 @@ class Listeluke extends Component {
     }
 
     componentDidMount() {
-        this.setLukeStatus();
+        if (this.state.lukeStatus === 'open') {
+            this.setLukeStatus();
+        }
     }
 
     setLukeStatus = () => {
@@ -29,7 +31,7 @@ class Listeluke extends Component {
 
     render() {
         let lukeContent;
-        if (this.props.todaysDay >= this.props.nummer) {
+        if (this.calendarStatus === 'open' && this.props.todaysDay >= this.props.nummer) {
             lukeContent = (
                 <div className="c_listeluke__inner">
                     <Link to={`/luke/${this.props.nummer}`}>
@@ -48,10 +50,7 @@ class Listeluke extends Component {
             )
         }
         return (
-            <div className={`c_listeluke c_listeluke--${this.state.lukeStatus}`}>
-                {/* <span className="c_listeluke__ribbon">
-                    {this.props.nummer}
-                </span> */}
+            <div className={`c_listeluke c_listeluke--${this.state.lukeStatus}`}>            
                 {lukeContent}
            </div>
         )

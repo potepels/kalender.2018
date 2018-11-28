@@ -2,7 +2,7 @@
 
 .c_header {
 	position: relative;
-	padding: 15px 0;
+	padding: 10px 0;
 	&__snowflakes {
 		position: absolute;
 		top: -45%;
@@ -47,15 +47,28 @@
 		text-align: center;
 		text-decoration: none;
 		h1 {
+			font-size: 1.6em;
 			color: $color--white;
 			span {
 				display: inline-block;
 				margin: 0 5px;
-				width: 80px;
-				height: 44px;
+				width: 66px;
+				height: 36px;
 				vertical-align: middle;
 				background: url('./chibilogo.png') no-repeat center center;
 				background-size: cover;
+			}
+		}
+	}
+	@media (min-width: $med-width) {
+		padding: 15px 0;
+		&__logo {
+			h1 {
+				font-size: 2em;
+				span {
+					width: 80px;
+					height: 44px;
+				}
 			}
 		}
 	}

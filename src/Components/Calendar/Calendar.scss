@@ -2,6 +2,14 @@
 
 .c_calendar {
     padding: 0 15px;
+    &__intro-text {
+        margin: 0 auto 40px;
+        max-width: 600px;
+        text-align: center;
+        h2 {
+            margin-bottom: 10px;
+        }
+    }
     &__luker {
         display: flex;
         flex-wrap: wrap;

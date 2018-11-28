@@ -8,11 +8,17 @@ export default class Luke extends React.Component {
         super(props);
         this.lukeId = parseInt(props.match.params.id);
 
-        this.todaysDate = new Date();
-        // this.todaysDay = 24;
-        this.startDate = new Date('2018-11-01T00:00:01');
-        this.endDate = new Date('2018-11-24T23:59:59');
-        this.todaysDay = parseInt(this.todaysDate.getDate());
+        // this.todaysDate = new Date();
+        this.todaysDate = new Date('2018-11-16T00:00:01');
+        this.todaysDay = this.todaysDate.getDate();
+        // this.todaysDay = parseInt(10);
+        // this.startDate = new Date('2018-11-01T00:00:01');
+        // this.endDate = new Date('2018-11-24T23:59:59');
+        this.startDate = new Date('2018-11-06T00:00:01');
+        this.endDate = new Date('2018-11-30T23:59:59');
+        // this.startDate = new Date('2018-12-01T00:00:01');
+        // this.endDate = new Date('2018-12-24T23:59:59');
+        // this.todaysDay = parseInt(this.todaysDate.getDate());
         this.startDay = parseInt(this.startDate.getDate());
         this.endDay = parseInt(this.endDate.getDate());
         this.state = {
@@ -22,44 +28,45 @@ export default class Luke extends React.Component {
         }
     }
 
-    async componentDidMount() {
+    async getLuke (id) {
         this.setCalendarStatus();        
         const result = await fetch('http://kaja.me/wp-json/acf/v3/2016_luker?per_page=24');
         let luke = await result.json();
         luke = luke.reverse();
-        console.log(parseInt(this.lukeId));
-        this.setState({data: luke[this.lukeId-1]});        
+        this.setState({data: luke[id]});
+    }
+
+    async componentDidMount() {
+        this.getLuke(this.lukeId-1);
+    }
+    
+    componentDidUpdate(prevProps, prevState) {
+        if(prevProps.match.params.id !== this.props.match.params.id) {
+            this.getLuke(this.props.match.params.id-1);
+        }
     }
 
     setCalendarStatus = () => {
-        if (this.todaysDate < this.startDate) {
-            console.log('Calendarstatus satt til early, for vi har ikke startet ennå');
-            this.setState({calendarStatus: 'early', showText: false});
-        }
-        else if (this.todaysDate > this.endDate) {
-            console.log('Calendarstatus satt til done, for vi er faktisk ferdig med denne kalenderperioden');
-            this.setState({calendarStatus: 'done', showText: false});
+        if (this.todaysDate > this.endDate) {
+            this.setState({calendarStatus: 'done', showText: true});
         }
         else if (this.lukeId > this.endDay) {
-            console.log('Calendarstatus satt til humbug, for vi er i rikig periode med legger inn ugyldig luke-id');
             this.setState({calendarStatus: 'humbug', showText: false});
         }
         else if (this.lukeId > this.todaysDay) {
-            console.log('Calendarstatus satt til future, for vi er i riktig periode men åpner en fremtidig luke');
             this.setState({calendarStatus: 'future', showText: false});
         }
+        else if (this.todaysDate < this.startDate) {
+            this.setState({calendarStatus: 'early', showText: false});
+        }
         else if (this.lukeId > this.startDay || this.lukeId === this.startDay) {
-            console.log('Kommer jeg hit?');
             if (this.lukeId === this.todaysDay) {
-                console.log('Calendarstatus satt til today, for vi er i riktig periode OG det er i dag!');
                 this.setState({calendarStatus: 'today', showText: true});
             } else {
-                console.log('Calendarstatus satt til open, for vi er i riktig periode og ser en tidligere åpnet luke');
                 this.setState({calendarStatus: 'open', showText: true});
             }
         } else {
             this.setState({calendarStatus: 'lol', showText: false});
-            console.log('Calendarstatus satt til lol, for dette makes no sense. Bunnslamresultat');
         }
         return this.state.calendarStatus;
     }
@@ -89,7 +96,7 @@ export default class Luke extends React.Component {
         return (
         <div className="wrapper">
             <div className="center-content">
-            hrhrh
+                <h2>{this.state.calendarStatus}</h2>
                 <Header />
                 <Viggoluke calendarStatus = {this.getCalendarStatus()} />
             </div>

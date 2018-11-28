@@ -30,7 +30,7 @@ class Menu extends Component {
   render() {
     return (
       <nav className={this.state.menuOpen ? "c_navigation c_navigation--open" : "c_navigation" }>
-      <button onClick={() => this.toggleMenu()} type="button" className="c_navigation__toggle">
+      <button onClick={() => this.toggleMenu()} type="button" className={this.state.menuOpen ? "c_navigation__toggle c_navigation__toggle--clicked" : "c_navigation__toggle" }>
       <FontAwesomeIcon className="snowflake snowflake--small" icon={faBars} />
       </button>
       <ul>
