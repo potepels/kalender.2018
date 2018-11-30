@@ -2,6 +2,17 @@
 
 .c_calendar {
     padding: 0 15px;
+    .sorry {
+        border: 2px solid $color--pink;
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        padding: 15px;
+        width: 300px;
+        p {
+            margin-bottom: 0;
+        }
+    }
     &__intro-text {
         margin: 0 auto 40px;
         max-width: 600px;

@@ -58,6 +58,10 @@ export default class Calendar extends React.Component {
 		return (
         <div className="c_calendar">
             <div className="g_center-content">
+                <div className="sorry">
+                    <p>Beklager, det er noe som tuller her så det å refreshe noen av undersidene fungerer ikke. Skal prøve å fikse det!</p>
+                </div>
+
                 {this.state.calendarStatus === 'closed' && (
                     <div className="c_calendar__intro-text">
                         <h2>Over for denne gang</h2>
@@ -69,7 +73,7 @@ export default class Calendar extends React.Component {
                         <p>Så koselig at du titter innom :) Jeg har dessverre ikke noe nytt innhold på kalenderen i år heller, jeg har rett og slett ikke hatt tid og ork. Men den gamle kalenderen har <Link to="/hva-er-dette">fått en ny drakt</Link>, og kanskje kan det være hyggelig å følge Momo og Sana hjem til jul en gang til.</p>
                     </div>)}
                     {this.state.calendarStatus === 'open' && (
-                        <div className="c_calendar__luker">        
+                        <div className="c_calendar__luker"> 
                             {luker}                        
                         </div>
                     )}
