@@ -3,14 +3,16 @@
 .c_navigation {
     position: fixed;
     top: 0;
-    right: -200px;
-    // width: 20vw;
-    width: 200px;
+    // right: -200px;
+    // width: 200px;
+    right: -90%;
+    width: 90%;
     height: 100vh;
     z-index: 40;
     text-align: right;
     transition: right 200ms ease-in-out;
     background: rgba($color--red, 0.85);
+    background: rgba(#fff, 0.9);
     ul {
         display: block;
         margin-top: 60px;
@@ -21,7 +23,9 @@
             a {
                 display: block;
                 padding: 5px 15px;
+                font-size: 1.2em;
                 color: #fff;
+                color: $color--darkgreen;
                 text-decoration: none;
             }
         }
@@ -43,16 +47,24 @@
         color: #fff;
         background: transparent;
         -webkit-appearance: none;
+        transition: color 150ms ease-in-out;
         &:focus {
             outline: none;
         }
         &--clicked {
-            background: $color--pink;
+            color: $color--darkgreen;
         }
     }
-    @media (min-width: $small-width) {
+    @media (min-width: $med-width) {
+        width: 200px;
+        right: -200px;
         &__toggle {
+            top: 15px;
+            right: 10px;
             cursor: pointer;
+        }
+        &--open {
+            right: 0;
         }
     }
 }

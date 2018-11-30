@@ -8,16 +8,16 @@ export default class Luke extends React.Component {
         super(props);
         this.lukeId = parseInt(props.match.params.id);
 
-        // this.todaysDate = new Date();
-        this.todaysDate = new Date('2018-11-16T00:00:01');
+        this.todaysDate = new Date();
+        // this.todaysDate = new Date('2018-11-16T00:00:01');
         this.todaysDay = this.todaysDate.getDate();
         // this.todaysDay = parseInt(10);
         // this.startDate = new Date('2018-11-01T00:00:01');
         // this.endDate = new Date('2018-11-24T23:59:59');
-        this.startDate = new Date('2018-11-06T00:00:01');
-        this.endDate = new Date('2018-11-30T23:59:59');
-        // this.startDate = new Date('2018-12-01T00:00:01');
-        // this.endDate = new Date('2018-12-24T23:59:59');
+        // this.startDate = new Date('2018-11-06T00:00:01');
+        // this.endDate = new Date('2018-11-30T23:59:59');
+        this.startDate = new Date('2018-12-01T00:00:01');
+        this.endDate = new Date('2018-12-24T23:59:59');
         // this.todaysDay = parseInt(this.todaysDate.getDate());
         this.startDay = parseInt(this.startDate.getDate());
         this.endDay = parseInt(this.endDate.getDate());

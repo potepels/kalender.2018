@@ -5,7 +5,7 @@
 	padding: 10px 0;
 	&__snowflakes {
 		position: absolute;
-		top: -45%;
+		top: -55%;
 		left: 0;
 		right: 0;
 		height: 30vh;
@@ -66,8 +66,22 @@
 			h1 {
 				font-size: 2em;
 				span {
+					margin-top: -10px;
 					width: 80px;
 					height: 44px;
+				}
+			}
+		}
+	}
+	@media (min-width: $mega-width) {
+		padding: 25px 0;
+		&__logo {
+			width: 370px;
+			h1 {
+				font-size: 3em;
+				span {
+					width: 110px;
+					height: 60px;
 				}
 			}
 		}

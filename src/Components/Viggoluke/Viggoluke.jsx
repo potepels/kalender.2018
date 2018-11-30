@@ -5,13 +5,13 @@ import './Viggoluke.scss';
 class Viggoluke extends React.Component {
 	constructor(props) {
         super(props);
-        // this.todaysDate = new Date();
-        this.todaysDate = new Date('2018-11-16T00:00:01');
+        this.todaysDate = new Date();
+        // this.todaysDate = new Date('2018-11-16T00:00:01');
         // this.todaysDay = parseInt(this.todaysDate.getDate());
-        // this.startDate = new Date('2018-12-01T00:00:01');
-        // this.endDate = new Date('2018-12-24T23:59:59');
-        this.startDate = new Date('2018-11-06T00:00:01');
-        this.endDate = new Date('2018-11-30T23:59:59');
+        this.startDate = new Date('2018-12-01T00:00:01');
+        this.endDate = new Date('2018-12-24T23:59:59');
+        // this.startDate = new Date('2018-11-06T00:00:01');
+        // this.endDate = new Date('2018-11-30T23:59:59');
         this.startDay = this.startDate.getDate();
         this.endDay = this.endDate.getDate();
         this.todaysDay = parseInt(10);
@@ -19,10 +19,9 @@ class Viggoluke extends React.Component {
             firstDay: false,
             lastDay: false,
         }
-        console.log('hei');
     }
 
-    getPrevDay = () => {        
+    getPrevDay = () => {
         const prevDay = this.props.nummer - 1;
         return prevDay;        
     }
@@ -39,9 +38,7 @@ class Viggoluke extends React.Component {
             </div>
         );
         let extraClass = 'humbug';
-        console.log('hei2');
         if (this.props.calendarStatus === 'open' || this.props.calendarStatus === 'today' || this.props.calendarStatus === 'done') {
-            console.log('hei3');
             lukeContent = (
                 <div className="c_viggoluke__inner">
                     <h2>{this.props.nummer}. desember</h2>
@@ -50,9 +47,9 @@ class Viggoluke extends React.Component {
                     </figure>
                     <p>{this.props.tekst}</p>
                     <div className="inner__navigation">
-                        {/* <Link to={`/luke/${this.getPrevDay()}`}>Forrige dag</Link> */}
-                        <Link to="/luke/10">Forrige dag</Link>
-                        <Link to="">Neste dag</Link>
+                        <Link to={`/luke/${this.getPrevDay()}`}>Forrige dag</Link>
+                        {/* <Link to="/luke/10">Forrige dag</Link> */}
+                        <Link to={`/luke/${this.getNextDay()}`}>Neste dag</Link>
                     </div>
                 </div>
             );

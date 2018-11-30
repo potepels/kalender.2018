@@ -15,7 +15,6 @@ class Hund extends React.Component {
                 <img src={this.props.bilde && this.props.bilde.sizes.medium} alt="Hei hei" />
             </figure>
            <div className="c_hund__text">
-            <h3>{this.props.strofe}</h3>
             <dl>
                 <dt>Rase</dt>
                 <dd>{this.props.rase}</dd>

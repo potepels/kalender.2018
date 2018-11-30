@@ -42,33 +42,12 @@
         position: relative;
         text-decoration: none;
         color: #fff;
-        &:after {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            // content: '';
-            background: rgba(0, 0, 0, 0.5);
-            transition: background-color 300ms ease-in-out;
-        }
-        &:hover {
-            h2 {
-                // background-color: $color--green;
-            }
-            img {
-                opacity: 0.9;
-            }
-            &:after {
-                // background: rgba(0, 0, 0, 0.3);
-            }
-        }
     }
     img {
         display: block;
         width: 100%;
         height: auto;
-        opacity: 0.5;
+        opacity: 0.3;
         transition: opacity 150ms ease-in-out;
     }
     h2 {
@@ -98,5 +77,30 @@
     }
     @media (min-width: $med-width) {
         width: calc(25% - 10px);
+        a {
+            &:hover {
+                img {
+                    opacity: 0.7;
+                }
+                &:after {
+                    bottom: 30px;
+                    opacity: 1;
+                }
+            }
+            &:after {
+                position: absolute;
+                bottom: 20px;
+                left: 50%;
+                width: 90%;
+                transform: translate(-50%, 0);
+                opacity: 0;
+                font-size: 1.4em;
+                transition: bottom 300ms ease-in-out, opacity 300ms ease-in-out;
+                content: 'Åpne luken!';
+            }
+        }
+    }
+    @media (min-width: $mega-width) {
+        // width: calc(20% - 10px);
     }
 }

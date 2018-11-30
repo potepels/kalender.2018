@@ -26,7 +26,9 @@
     &--humbug,
     &--future,
     &--early {
-        border: 1px solid cyan;
+        h2 {
+            margin-bottom: 20px;
+        }
     }
     @media (min-width: $med-width) {
 		h2 {
@@ -34,6 +36,7 @@
         }
         figure {
             margin: 30px 0;
+            width: 100%;
         }
 	}
 }

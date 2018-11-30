@@ -1,0 +1,21 @@
+@import '../../variables';
+
+.c_spinner {
+	
+	@media (min-width: $med-width) {
+		padding: 15px 0;
+		&__logo {
+			h1 {
+				font-size: 2em;
+				span {
+					margin-top: -10px;
+					width: 80px;
+					height: 44px;
+				}
+			}
+		}
+	}
+	@media (min-width: $mega-width) {
+		
+	}
+}

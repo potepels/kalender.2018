@@ -1,37 +1,68 @@
 @import '../../variables';
 
 .c_hund {
-    display: flex;
-    flex-wrap: wrap;
+    
+    padding: 0 25px;
     h2 {
+        text-align: center;
+        margin-bottom: 20px;
         width: 100%;
+        font-size: 3em;
         font-family: 'Lobster';
     }
     figure {
+        margin-bottom: 20px;
         width: 100%;
+        max-width: 250px;
         overflow: hidden;
-        // background: $color--turq;
-        // background: rgba(#fff, 0.2);
-        // background: #fff;
         img {
             display: block;
             width: 100%;
             border: 10px solid $color--turq;
-            // @include gradient(#fff, $color--darkgreen);
             background-color: rgba(#fff, 0.3);
             border-radius: 50%;
         }
     }
-    dl {
-        border: 1px solid pink;
-        width: 100%;
+    h3 {
+        text-align: center;
+        font-size: 2em;
     }
-    @media (min-width: $small-width) {
+    dl {
+        margin-bottom: 20px;
+        width: 100%;
+        dt,
+        dd {
+            display: inline-block;
+            vertical-align: top;
+            margin: 0;
+            padding: 0;
+        }
+        dt {
+            width: 95px;
+            font-weight: bold;
+            &:after {
+                content: ':';
+            }
+        }
+        dd {
+            width: calc(100% - 115px);
+        }
+    }
+    @media (min-width: $med-width) {
+        display: flex;
+        margin-bottom: 40px;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        h2 {
+            margin: 0;
+        }
         figure {
             width: 30%;
         }
         &__text {
-            width: 60%
+            width: calc(70% - 40px);
         }
+        
     }
 }
