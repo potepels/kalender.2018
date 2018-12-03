@@ -4,11 +4,13 @@
     padding: 0 15px;
     .sorry {
         border: 2px solid $color--pink;
-        position: absolute;
+        position: fixed;
         bottom: 20px;
         left: 20px;
         padding: 15px;
         width: 300px;
+        z-index: 50;
+        background: rgba(#000, 0.8);
         p {
             margin-bottom: 0;
         }

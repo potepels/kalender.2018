@@ -66,5 +66,19 @@
         &--open {
             right: 0;
         }
+        ul {
+            li {
+                a {
+                    padding-right: 25px;
+                    transition: all 150ms ease-in-out;
+                    font-size: 16px;
+                    &:hover {
+                        // padding-right: 10px;
+                        background: rgba($color--darkgreen, 0.85);
+                        color: #fff;
+                    }
+                }
+            }
+        }
     }
 }

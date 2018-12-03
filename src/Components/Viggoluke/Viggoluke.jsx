@@ -46,11 +46,10 @@ class Viggoluke extends React.Component {
                         <img src={this.props.bilde && this.props.bilde.sizes.medium_large} alt="Hei hei" />
                     </figure>
                     <p>{this.props.tekst}</p>
-                    <div className="inner__navigation">
+                    {/* <div className="inner__navigation">
                         <Link to={`/luke/${this.getPrevDay()}`}>Forrige dag</Link>
-                        {/* <Link to="/luke/10">Forrige dag</Link> */}
                         <Link to={`/luke/${this.getNextDay()}`}>Neste dag</Link>
-                    </div>
+                    </div> */}
                 </div>
             );
             extraClass = 'open';

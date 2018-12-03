@@ -58,9 +58,6 @@ export default class Calendar extends React.Component {
 		return (
         <div className="c_calendar">
             <div className="g_center-content">
-                <div className="sorry">
-                    <p>Beklager, det er noe som tuller her så det å refreshe noen av undersidene fungerer ikke. Skal prøve å fikse det!</p>
-                </div>
 
                 {this.state.calendarStatus === 'closed' && (
                     <div className="c_calendar__intro-text">
