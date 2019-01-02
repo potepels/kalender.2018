@@ -3,43 +3,6 @@
 .c_header {
 	position: relative;
 	padding: 10px 0;
-	&__snowflakes {
-		position: absolute;
-		top: -55%;
-		left: 0;
-		right: 0;
-		height: 30vh;
-		z-index: -1;
-		opacity: 1;
-		overflow-y: hidden;
-		.snowflake {
-			position: absolute;
-			top: 0;
-			left: 0;
-			animation: snowfall infinite 5s;
-			font-size: 2vw;
-			z-index: 20;
-			path {
-				fill: #fff;
-			}
-			@for $i from 1 through 12 {
-				&:nth-of-type(#{$i}) {
-					animation-delay: calc(1s * #{$i});
-					left: calc(9vw * #{$i});
-				}
-			}
-			&--small {
-				animation-duration: 8s;
-			}
-			&--medium {
-				font-size: 3vw;
-			}
-			&--big {
-				font-size: 4vw;
-				animation-duration: 3s;
-			}
-		}
-	}
 	&__logo {
 		display: block;
 		margin: 0 auto;
@@ -48,7 +11,8 @@
 		text-decoration: none;
 		h1 {
 			font-size: 1.6em;
-			color: $color--white;
+			color: $color--navy;
+			color: #fff;
 			span {
 				display: inline-block;
 				margin: 0 5px;
@@ -94,25 +58,5 @@
 				}
 			}
 		}
-	}
-}
-
-@keyframes snowfall  {
-	0% {
-		opacity: 1;
-		top: -40%;
-		transform: scale(0.5);
-	}
-	65% {
-		transform: scale(1);
-		opacity: 1;
-	}
-	80% {
-		opacity: 0;
-	}
-	100% {
-		opacity: 0;
-		top: 90%;
-		transform: scale(0.8);
 	}
 }

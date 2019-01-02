@@ -23,8 +23,9 @@ body {
   font-size: 62%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: $color--darkgreen;
-  @include gradient($color--darkgreen, darken($color--darkgreen, 15%));
+  // background: $color--darkgreen;
+  @include gradient($color--navy, darken($color--navy, 15%));
+  color: #333;
   color: #fff;
 }
 

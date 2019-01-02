@@ -1,0 +1,66 @@
+@import '../../../variables';
+
+.c_palette {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 30px;
+    // background: #fff;
+    h2 {
+        display: block;
+        margin-bottom: 40px;
+        text-align: center;
+        width: 100%;
+        font-family: Lobster;
+    }
+    &__color {
+        position: relative;
+        margin-bottom: 80px;
+        width: 140px;
+        height: 140px;
+        transform: rotate(45deg);
+        text-align: center;
+        border: 15px solid #fff;
+        color: #000;
+        span {
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform-origin: 0 0;
+            transform: rotate(-45deg) translate(-50%, -50%);
+            // transform: translate(-50%, -50%);
+        }
+        &--navy {
+            background: $color--navy;
+            color: #fff;
+        }
+        &--gold {
+            background: $color--gold;
+        }
+        &--choal {
+            background: $color--choal;
+            color: #fff;
+        }
+        &--steel {
+            background: $color--steel;
+            color: #fff;
+        }
+        &--beige {
+            background: $color--beige;
+        }
+        &--salmon {
+            background: $color--salmon;
+        }
+        &--momo {
+            background: $color--momo;
+        }
+        &--sana {
+            background: $color--sana;
+        }
+    }
+    @media (min-width: $med-width) {
+       
+        
+    }
+}

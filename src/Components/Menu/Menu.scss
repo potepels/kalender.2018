@@ -44,7 +44,7 @@
         font-size: 30px;
         z-index: 50;
         border: none;
-        color: #fff;
+        color: $color--navy;
         background: transparent;
         -webkit-appearance: none;
         transition: color 150ms ease-in-out;
@@ -52,7 +52,7 @@
             outline: none;
         }
         &--clicked {
-            color: $color--darkgreen;
+            color: $color--navy;
         }
     }
     @media (min-width: $med-width) {

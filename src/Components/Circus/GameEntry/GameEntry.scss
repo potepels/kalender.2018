@@ -1,0 +1,68 @@
+@import '../../../variables';
+
+.c_hund {
+    
+    padding: 0 25px;
+    h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        width: 100%;
+        font-size: 3em;
+        font-family: 'Lobster';
+    }
+    figure {
+        margin-bottom: 20px;
+        width: 100%;
+        max-width: 250px;
+        overflow: hidden;
+        img {
+            display: block;
+            width: 100%;
+            border: 10px solid $color--turq;
+            background-color: rgba(#fff, 0.3);
+            border-radius: 50%;
+        }
+    }
+    h3 {
+        text-align: center;
+        font-size: 2em;
+    }
+    dl {
+        margin-bottom: 20px;
+        width: 100%;
+        dt,
+        dd {
+            display: inline-block;
+            vertical-align: top;
+            margin: 0;
+            padding: 0;
+        }
+        dt {
+            width: 95px;
+            font-weight: bold;
+            &:after {
+                content: ':';
+            }
+        }
+        dd {
+            width: calc(100% - 115px);
+        }
+    }
+    @media (min-width: $med-width) {
+        display: flex;
+        margin-bottom: 40px;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        h2 {
+            margin: 0;
+        }
+        figure {
+            width: 30%;
+        }
+        &__text {
+            width: calc(70% - 40px);
+        }
+        
+    }
+}

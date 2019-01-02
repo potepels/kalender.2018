@@ -1,0 +1,19 @@
+@import '../../variables';
+
+.t_about {
+    padding: 0 15px;
+    &__text {
+        h1 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        margin: 0 auto;
+        max-width: 600px;
+        text-align: center;
+    }
+    @media (min-width: $med-width) {
+        &__text {
+            text-align: left;
+        }
+    }
+}

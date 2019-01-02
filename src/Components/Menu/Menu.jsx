@@ -40,6 +40,9 @@ class Menu extends Component {
           <li>
             <Link to="/om-hundene">Om hundene</Link>
           </li>
+          <li>
+            <Link to="/bibliotek">Bibliotek</Link>
+          </li>
         </ul>
     </nav>
     )
