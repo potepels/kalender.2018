@@ -43,6 +43,17 @@ class Listeluke extends Component {
             )
             hepp = 'open';
         }
+        else if(this.calendarStatus === 'closed') {
+            lukeContent = (
+                <div className="c_listeluke__inner">
+                    <Link to={`/luke/${this.props.nummer}`}>
+                        <h2>{this.props.nummer}</h2>
+                        <img src={this.props.bilde.sizes.thumbnail} alt="Bilde av thumbnail"/>
+                    </Link>
+                </div>
+            )
+            hepp = 'open';
+        }
         else {
             lukeContent = (
                 <div className="c_listeluke__inner">

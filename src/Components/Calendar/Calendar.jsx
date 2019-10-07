@@ -63,6 +63,10 @@ export default class Calendar extends React.Component {
                     <div className="c_calendar__intro-text">
                         <h2>Over for denne gang</h2>
                         <p>Jeg lover å stille med masse nytt innhold til neste år. Jeg er <strong>ikke</strong> ferdig med Momo og Sana! :)</p>
+                        <p>Her er den gamle kalendern:</p>
+                        <div className="c_calendar__luker"> 
+                            {luker}                        
+                        </div>
                     </div>)}
                     {this.state.calendarStatus === 'early' && (
                     <div className="c_calendar__intro-text">
